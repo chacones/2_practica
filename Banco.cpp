@@ -16,6 +16,8 @@ void Banco::meter_dinero() {
   cin >> id >> dinero;
   Cuenta c = buscar_cuenta(id);
   c.meter_dinero(dinero);
+
+  cout << "DINERO: " << c.get_dinero() << endl;
 }
 
 
@@ -24,9 +26,22 @@ void Banco::sacar_dinero() {
   cin >> id >> dinero;
   Cuenta c = buscar_cuenta(id);
   c.sacar_dinero(dinero);
+
+  cout << "DINERO: " << c.get_dinero() << endl;
 }
 
 void Banco::transferencia_bancaria(){
+  int id_origen, id_destino, dinero;
+  cin >> id_origen >> id_destino >> dinero;
+  Cuenta origen = buscar_cuenta(id_origen);
+  Cuenta destino = buscar_cuenta(id_destino);
+  if(origen.get_dinero() >= dinero) {
+    origen.sacar_dinero(dinero);
+    destino.meter_dinero(dinero);
+  }
+
+  cout << "DINERO ORIGEN: " << origen.get_dinero() << endl;
+  cout << "DINERO DESTINO: " << destino.get_dinero() << endl;
 
 }
 
@@ -38,13 +53,16 @@ void Banco::imprimir_historial() {
 
 }
 
+void Banco::cambio_de_dia() {
+
+}
 
 Cuenta Banco::buscar_cuenta(int id) {
   list<Cuenta>::iterator it = cuentas.begin();
   bool trobat = false;
   Cuenta resultat;
   while (it != cuentas.end() and not trobat) {
-    if((it->get_identificador() == id) {
+    if(it->get_identificador() == id) {
       trobat = true;
       resultat = (*it);
     }

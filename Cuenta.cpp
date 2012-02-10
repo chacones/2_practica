@@ -2,7 +2,7 @@
 
 
 Cuenta::Cuenta() {
-  dinero = 0;
+  dinero_actual = 0;
   dias_en_uso = 1;
 }
 
@@ -13,7 +13,7 @@ int Cuenta::get_identificador() {
 }
 
 int Cuenta::get_dinero() {
-  return dinero;
+  return dinero_actual;
 }
 
 int Cuenta::get_dias_en_uso(){
@@ -21,6 +21,7 @@ int Cuenta::get_dias_en_uso(){
 }
 
 void Cuenta::leer_cuenta() {
+  cout << "Nuevo numero de cuenta: "; 
   cin >> identificador;
 }
 
@@ -29,5 +30,5 @@ void Cuenta::meter_dinero(int dinero) {
 }
 
 void Cuenta::sacar_dinero(int dinero) {
-  if(diner_actual >= dinero) dinero_actual -= dinero;
+  if(dinero_actual >= dinero) dinero_actual -= dinero;
 }

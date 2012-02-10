@@ -31,7 +31,7 @@ int main() {
 
     }
     else if (tarea == 8) {
-      
+      b.cambio_de_dia();
     }
   }
 }
