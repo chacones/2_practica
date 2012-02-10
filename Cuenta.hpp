@@ -14,6 +14,7 @@ public:
   int get_identificador();
   int get_dinero();
   int get_dias_en_uso();
+  void set_dias_en_uso(int dia);
   void leer_cuenta();
   void meter_dinero(int dinero);
   void sacar_dinero(int dinero);

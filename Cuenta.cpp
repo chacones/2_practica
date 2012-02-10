@@ -17,6 +17,10 @@ int Cuenta::get_dias_en_uso(){
   return dias_en_uso;
 }
 
+void Cuenta::set_dias_en_uso(int dia) {
+  dias_en_uso++;
+}
+
 void Cuenta::leer_cuenta() {
   cout << "Nuevo numero de cuenta: "; 
   cin >> identificador;

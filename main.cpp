@@ -20,7 +20,6 @@ int main() {
     }
     else if (tarea == 3) {
       b.meter_dinero();
-      b.imprimir_cuentas();
     }
     else if (tarea == 4) {
       b.de_cuenta_a_plazo_fijo();
@@ -34,5 +33,6 @@ int main() {
     else if (tarea == 8) {
       b.cambio_de_dia();
     }
+    b.imprimir_cuentas();
   }
 }
