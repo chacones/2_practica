@@ -1,10 +1,7 @@
 #include "Cuenta.hpp"
 
 
-Cuenta::Cuenta() {
-  dinero_actual = 0;
-  dias_en_uso = 1;
-}
+Cuenta::Cuenta() {}
 
 Cuenta::~Cuenta() {}
 
@@ -23,6 +20,7 @@ int Cuenta::get_dias_en_uso(){
 void Cuenta::leer_cuenta() {
   cout << "Nuevo numero de cuenta: "; 
   cin >> identificador;
+  dinero_actual = 0;
 }
 
 void Cuenta::meter_dinero(int dinero) {

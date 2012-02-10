@@ -18,6 +18,7 @@ public:
   void de_cuenta_a_plazo_fijo();
   void imprimir_historial();
   void cambio_de_dia();
-  Cuenta buscar_cuenta(int id);
+  Cuenta* buscar_cuenta(int id);
 
+  void imprimir_cuentas();
 };

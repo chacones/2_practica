@@ -14,10 +14,10 @@ void Banco::crear_cuenta() {
 void Banco::meter_dinero() {
   int id, dinero;
   cin >> id >> dinero;
-  Cuenta c = buscar_cuenta(id);
-  c.meter_dinero(dinero);
+  Cuenta* c = buscar_cuenta(id);
+  c->meter_dinero(dinero);
 
-  cout << "DINERO: " << c.get_dinero() << endl;
+  //cout << "DINERO: " << c.get_dinero() << endl;
 }
 
 
@@ -57,16 +57,25 @@ void Banco::cambio_de_dia() {
 
 }
 
-Cuenta Banco::buscar_cuenta(int id) {
+Cuenta* Banco::buscar_cuenta(int id) {
   list<Cuenta>::iterator it = cuentas.begin();
   bool trobat = false;
-  Cuenta resultat;
+  Cuenta* resultat;
   while (it != cuentas.end() and not trobat) {
     if(it->get_identificador() == id) {
       trobat = true;
-      resultat = (*it);
+      resultat = it;
     }
     else ++it;
   }
   return resultat;
+}
+
+void Banco::imprimir_cuentas() {
+  list<Cuenta>::iterator it = cuentas.begin();
+  while(it != cuentas.end()) {
+    Cuenta c = (*it);
+    cout << c.get_identificador() << " " << c.get_dinero() << endl;
+    ++it;
+  }
 }
